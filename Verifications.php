@@ -1,11 +1,8 @@
 <?php
  //var_dump($_POST);
     //Teste si le tableau POST est vide. TRUE = VIDE et FALSE = NON VIDE.
-   /* if (empty($_POST) == false) {
-        echo 'Tableau non vide.';
-    } else {
-        echo'Tableau vide.';
-    }*/
+    if (empty($_POST) == false) {
+       
    
     if(isset($_POST['prenom']) == true) { //Teste si le champs est vide.
         
@@ -58,12 +55,12 @@
         
     }
     
-    if(isset($_POST['radio']) == true) { //Teste si le champs est vide.
+    if(isset($_POST['radio']) == false) { //Teste si le champs est vide.
         
-        if($_POST['radio'] == false) {
-            $aerror[] = '<p>Veuillez renseigner votre situation professionnelle.<p>';
-        }
+       
+            $aerror[] = 'Veuillez renseigner votre situation professionnelle.';
         
+            
     }
     
     if(isset($_POST['mdp2']) == true) { //Teste si le champs est vide.
@@ -72,13 +69,7 @@
             $aerror[] = '<p>Veuillez confirmer votre mot de passe.<p>';
         }
         
-    }
-    
-    if(($_POST['radio'] != "C") && ($_POST['radio'] != "S")) { //Teste si le champs est vide.
-        
-            $aerror[] = '<p>Veuillez renseigner votre situation professionnelle.<p>';
-        
-    }
+    }    
     
     if(isset($_POST['checkbox[]']) == true) { //Teste si le champs est vide.
         
@@ -88,7 +79,7 @@
         
     }
     
-    
+    }   
     
 ?>
 

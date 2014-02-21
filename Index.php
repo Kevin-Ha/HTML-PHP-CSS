@@ -73,8 +73,7 @@ if (isset($aerror) == true) {
             <br />
             <div>
                 <label for= "per_mdp2" > • Confirmez votre mot de passe :</label>
-                <input id="per_mdp" type="password" name="mdp2" />
-                    
+                <input id="per_mdp" type="password" name="mdp2" />      
              </div>
             <br />
             <div>
