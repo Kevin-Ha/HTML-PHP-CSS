@@ -1,9 +1,17 @@
 <?php
  //var_dump($_POST);
     //Teste si le tableau POST est vide. TRUE = VIDE et FALSE = NON VIDE.
-    if (empty($_POST) == false) {
+ if (empty($_POST) == false) {
        
-   
+   if(isset($_POST['nom']) == true) { //Teste si le champs est vide.
+        
+        if($_POST['nom'] == '') {
+            $aerror[] = '<p>Veuillez renseigner un nom.<p>';
+        }else {
+        ecriture($_POST['nom']);
+        }
+    }
+    
     if(isset($_POST['prenom']) == true) { //Teste si le champs est vide.
         
         if($_POST['prenom'] == '') {
@@ -13,14 +21,6 @@
         }
     }
     
-    if(isset($_POST['nom']) == true) { //Teste si le champs est vide.
-        
-        if($_POST['nom'] == '') {
-            $aerror[] = '<p>Veuillez renseigner un nom.<p>';
-        }else {
-        ecriture($_POST['nom']);
-        }
-    }
     if(isset($_POST['date']) == true) { //Teste si le champs est vide.
         
         if($_POST['date'] == '') {
@@ -29,6 +29,7 @@
         ecriture($_POST['date']);
         }
     }
+    
     if(isset($_POST['sexe']) == true) { //Teste si le champs est vide.
         
         if($_POST['sexe'] == 'Sélectionnez') {
@@ -37,6 +38,7 @@
         ecriture($_POST['sexe']);
         }
     }
+    
      if(isset($_POST['email']) == true) { //Teste si le champs est vide.
         
         if($_POST['email'] == '') {
@@ -45,6 +47,7 @@
         ecriture($_POST['email']);
         }
     }
+    
      if(isset($_POST['mdp']) == true) { //Teste si le champs est vide.
         
         if($_POST['mdp'] == '') {
@@ -53,22 +56,6 @@
         ecriture($_POST['mdp']);
         }
     }
-    if(isset($_POST['textarea']) == true) { //Teste si le champs est vide.
-        
-        if($_POST['textarea'] == '') {
-            $aerror[] = '<p>Veuillez renseigner une description de vous-même.<p>';
-        }else {
-        ecriture($_POST['textarea']);
-        }
-    }
-    
-    if(isset($_POST['radio']) == false) { //Teste si le champs est vide.
-        
-            $aerror[] = 'Veuillez renseigner votre situation professionnelle.';
-    }else {
-        ecriture($_POST['radio']);
-        }
-    
     
     if(isset($_POST['mdp2']) == true) { //Teste si le champs est vide.
         
@@ -77,8 +64,22 @@
         }else {
         ecriture($_POST['mdp2']);
         }
-    }  
+    } 
     
+    if(isset($_POST['radio']) == false) { //Teste si le champs est vide.
+        
+            $aerror[] = 'Veuillez renseigner votre situation professionnelle.';
+    }else {
+        ecriture($_POST['radio']);
+        }
+        
+    if(isset($_POST['textarea']) == true) { //Teste si le champs est vide.
+        
+            $aerror[] = 'Veuillez renseigner une description de vous-même.';
+        }else {
+        ecriture($_POST['textarea']);
+        }
+   
     if(isset($_POST['checkbox[]']) == false) { //Teste si le champs est vide.
         
             $aerror[] = 'Veuillez cocher au moins une case.';  
