@@ -71,12 +71,9 @@
         
     }    
     
-    if(isset($_POST['checkbox[]']) == true) { //Teste si le champs est vide.
+    if(isset($_POST['checkbox[]']) == false) { //Teste si le champs est vide.
         
-        if($_POST['checkbox[]'] == '') {
-            $aerror[] = '<p>Veuillez cocher au moins une case.<p>';
-        }
-        
+            $aerror[] = '<p>Veuillez cocher au moins une case.<p>';  
     }
     
     }   
