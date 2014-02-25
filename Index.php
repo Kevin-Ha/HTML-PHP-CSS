@@ -7,6 +7,7 @@ if (isset($aerror) == true) {
     echo '<p class="error">', $error, '</p>';
   }
 }
+//var_dump($_FILES);
 ?>
 <!DOCTYPE html>
 
@@ -110,7 +111,7 @@ if (isset($aerror) == true) {
             <br />
             <div>
                 <label for="per_fichier"> • Envoyez une image de profil:</label>
-                <input id="per_fichier" type="file" name="file" />
+                <input id="per_fichier" type="file" value="<?php if(isset($_FILES['picture'])) echo $_FILES['picture']; ?>" name="picture" />
             </div>
             <br />
             <div>

@@ -1,5 +1,6 @@
 <?php
  $Compteur = 0;
+ $dossier = "Users/" . $_SERVER["REMOTE_ADDR"] . '/'; 
 
  if (empty($_POST) == false) {
     
@@ -107,7 +108,7 @@
         }
                     if($OK == 1)
                     {
-                        $dossier = 'Users/' . $_SERVER["REMOTE_ADDR"] . '/'; 
+                       
                         mkdir($dossier);
                         $file = fopen($dossier . "Donnees.txt", "w+");
                   
@@ -121,18 +122,18 @@
                         fwrite($file, 'mdp2: ' .$_POST['mdp2']  .   PHP_EOL);
                         fwrite($file, 'textarea: ' .$_POST['textarea']  .   PHP_EOL);
                         fclose($file); 
-                        $cheminTMP = $_FILES['per_fichier']['tmp_name'];
-                        $cheminNouveau = $Utilisateurs . $_FILES['per_fichier']['name'];
+                        $cheminTMP = $_FILES['picture']['tmp_name'];
+                        $cheminNouveau = $dossier . $_FILES['picture']['name'];
                         move_uploaded_file($cheminTMP, $cheminNouveau);
-                        
-
                     }
-       
- 
-       
+    
 function ecriture($contenu) {
     file_put_contents("Users/reponses.txt", $contenu . "\r\n", FILE_APPEND);
  }
  
- 
+ if(is_dir($dossier) == true) {
+                         header('Location: InscriptionValide.php');
+                         exit;
+                             }
+
 ?>
